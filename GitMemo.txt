@@ -1,0 +1,7 @@
+
+
+14:33 2022/03/18
+
+.gitignore ファイルを準備した。 VisualStudio.gitignore と同じ。
+とりあえず sln ファイルと同じフォルダに置いた。
+

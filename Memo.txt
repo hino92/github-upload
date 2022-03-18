@@ -1,0 +1,24 @@
+
+・ 2つの gpresult /Z の出力の Administrative Templates の内容を比較するとき、出力順がバラバラのため
+   単純にdiff をとっても比較できない。
+   そこで、下記の塊を読み込んで、Folder Id: 行の値でソートして出力するプログラム。
+
+            GPO: Local Group Policy
+                Folder Id: SOFTWARE\Microsoft\Windows\CurrentVersion\policies\Explorer\NoDriveTypeAutoRun
+                Value:       255, 0, 0, 0
+                State:       Enabled
+
+・ 英語 Windowsのみ。（gpresultの出力文字列が異なるため）
+
+
+・ Administrative Templates  の行を見つけると、塊を読み込む。
+   COMPUTER SETTINGS か USER SETTINGS かに関係なくファイルの最後まで読み込むので
+   Administrative Templates の範囲だけのファイルを入力とした方が良い。
+
+
+・GPO:から始まるデータが4行あることを決め打ちで読んでいる。Value:行がない場合があってズレる。一旦格納する
+  オブジェクトのメンバーにも間違って保存される。
+  塊間は空白行が一つあることから次の塊を読んでしまうことは無い。
+  保持しているメンバーが間違っているが、最終的なテキスト出力はとりあえず問題ない。なのでこのまま。
+
+
